@@ -1,7 +1,9 @@
 ## About The Project
 This repo collects the following lectures to demonstrate the usage of sandbox builder:
-- L2: course_id=1052, Getting Structured LLM Output
-- L3: course_id=1057, MCP: Build Rich-Context AI Apps with Anthropic
+- L1: openai support, real lesson from Getting Structured LLM Output
+- L2: anthropic support, real lesson from MCP: Build Rich-Context AI Apps with Anthropic
+- L3: exam and grader, real lesson from AP4B
+
 
 ## Common Diretory Structures
 ```
