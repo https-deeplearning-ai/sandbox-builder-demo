@@ -15,11 +15,11 @@ RUN useradd jovyan -d /home/jovyan -m -p 0049e6b11c44d4b00006eb820983a7a76c84a12
 
 COPY ./jupyter_server_config.py /home/jovyan/.jupyter/jupyter_server_config.py
 
-COPY ./L2 /home/jovyan/work/L2
-COPY ./L3 /home/jovyan/work/L3
+COPY . /home/jovyan/work
 
 RUN chown -R jovyan:jovyan -R /home/jovyan
 RUN chown -R jovyan:jovyan -R /home/jovyan/work
 
 USER jovyan
+EXPOSE 8000
 CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter notebook --no-browser"]
