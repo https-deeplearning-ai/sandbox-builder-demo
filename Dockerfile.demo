@@ -1,4 +1,4 @@
-FROM 303406931743.dkr.ecr.us-west-1.amazonaws.com/courses:base-tensorflow-gpu-2.16.1-v1
+FROM 303406931743.dkr.ecr.us-west-1.amazonaws.com/courses:base-tensorflow-gpu-2.16.1-v2
 USER root
 
 COPY ./works/requirements.txt .

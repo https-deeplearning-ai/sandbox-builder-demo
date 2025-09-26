@@ -1,3 +1,7 @@
 # tensorflow base image contains tensorflow and numpy,
-scipy
-pandas
+# but it does not contain scipy and pandas.
+
+# Also, make sure the numpy is in 1.x, not 2.x with the depdendencies here.
+pandas==2.1.1
+scipy==1.11.3
+
