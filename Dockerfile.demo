@@ -1,0 +1,13 @@
+FROM 303406931743.dkr.ecr.us-west-1.amazonaws.com/courses:base-tensorflow-gpu-2.16.1-v1
+USER root
+
+COPY ./works/requirements.txt .
+
+RUN pip3 install --no-cache-dir -r requirements.txt && \
+    pip3 cache purge
+
+COPY ./works /home/jovyan/work
+
+RUN  chown -R jovyan:jovyan /home/jovyan
+
+USER jovyan
