@@ -19,3 +19,7 @@ This repo collects the following lectures to demonstrate the usage of sandbox bu
 ```
 
 ## Proxy Environment variables
+
+
+## testing
+- EXA_BASE_URL=http://jupyter-api-proxy.stg.internal.dlai/rev-proxy/exa EXA_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHAiLCJleHAiOjE3OTk5OTk5OTksInN1YiI6NDc5LCJhdWQiOiJXRUIiLCJpYXQiOjE2OTQwNzY4NTF9.5upFqaJKhBD82QcdJ2ipzgDHV_oZARUpzeD1xoTPXCI uv run jupyter lab

@@ -1,5 +1,5 @@
 annotated-types==0.7.0
-anthropic==0.50.0
+anthropic
 anyio==4.9.0
 arxiv==2.2.0
 certifi==2025.4.26
@@ -16,12 +16,9 @@ jiter==0.9.0
 markdown-it-py==3.0.0
 mcp[cli]==1.7.1
 mdurl==0.1.2
-pydantic==2.11.4
-pydantic-core==2.33.2
-pydantic-settings==2.9.1
+pydantic
 pygments==2.19.1
 pypdf2==3.0.1
-python-dotenv==1.1.0
 python-multipart==0.0.20
 requests==2.32.3
 rich==14.0.0
@@ -38,8 +35,10 @@ uv==0.7.2
 uvicorn==0.34.2
 jupyter_server_terminals==0.4.4
 jupyter
-openai==1.66.3
+openai
 pandas==2.2.3
 exa-py==1.15.6
 fastapi==0.116.1
 tavily-python==0.7.12
+crewai==0.201.0
+crewai-tools==0.74.0
