@@ -1,10 +1,12 @@
 FROM python:3.12
 USER root
 
-COPY ./requirements.txt .
+# Install the dependencies (using uv)
+COPY ./works/requirements.txt .
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
 RUN uv pip install --system --no-cache-dir -r requirements.txt
 
+# sudoer settings
 RUN chsh -s /bin/bash
 RUN useradd jovyan -d /home/jovyan -m -p 0049e6b11c44d4b00006eb820983a7a76c84a12d -s /bin/bash && \
     echo "jovyan ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
@@ -13,13 +15,15 @@ RUN useradd jovyan -d /home/jovyan -m -p 0049e6b11c44d4b00006eb820983a7a76c84a12
     jupyter server --generate-config && \
     mkdir -p /home/jovyan/work
 
-COPY ./jupyter_server_config.py /home/jovyan/.jupyter/jupyter_server_config.py
+# Enable the Content Security Policy to allow iframe embedding.
+COPY --from=public.ecr.aws/deeplearning-ai/public-courses:utils-V1 /home/jovyan/.jupyter/jupyter_server_config.py /home/jovyan/.jupyter/jupyter_server_config.py
+COPY ./works /home/jovyan/work
 
-COPY . /home/jovyan/work
-
+# Ensure read/write for jovyan
 RUN chown -R jovyan:jovyan -R /home/jovyan
 RUN chown -R jovyan:jovyan -R /home/jovyan/work
 
+RUN curl -L https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.x86_64 -o /usr/local/bin/ttyd && chmod +x /usr/local/bin/ttyd
+
 USER jovyan
-EXPOSE 8000
-CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter notebook --no-browser"]
+CMD ["bash", "-c", "ttyd -p 7682 -W bash & jupyter lab --ip=0.0.0.0 --no-browser --allow-root"]
