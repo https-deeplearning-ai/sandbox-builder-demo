@@ -1,0 +1,28 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=my_dlai_pg_db
+      - POSTGRES_USER=dlai
+      - POSTGRES_PASSWORD=dlai-gogogo-hasta-la-vista-baby
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dlai -d my_dlai_pg_db"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  jupyter:
+    image: jupyter/scipy-notebook:latest
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/home/jovyan/work
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''
