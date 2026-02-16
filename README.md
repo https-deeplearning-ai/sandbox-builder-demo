@@ -1,19 +1,38 @@
 ## About The Project
 This repo collects the following lectures to demonstrate the usage of sandbox builder:
-- L1: openai support, real lesson from Getting Structured LLM Output
 - L2: anthropic support, real lesson from MCP: Build Rich-Context AI Apps with Anthropic
-- L3: exam and grader, real lesson from AP4B
+- assignments/L1: example of coding assignments
 
-
-## Common Diretory Structures
+## Common Directory Structures
 ```
 ├── L2
-│   ├── L_2.ipynb
-│   ├── helper.py
-│   ├── mentions-processed.csv
-│   └── requirements.txt
-├── L3
-│   └── L3.ipynb
+│   ├── L_2.ipynb
+│   ├── helper.py
+│   ├── mentions-processed.csv
+│   └── requirements.txt
+├── assignments
+│   └── L1
+│       ├── SIMPLE_DEMO_L1_Assignment.ipynb
+│       └── autograder
+│           ├── Dockerfile
+│           ├── Makefile
+│           ├── entry.py
+│           ├── grader.py
+│           ├── requirements.txt
+│           └── ...
+├── services
+│   ├── exa.ipynb
+│   ├── openai_.ipynb
+│   ├── tavily_.ipynb
+│   └── together.ipynb
+├── sidecar-pg
+│   ├── connect_to_postgres.ipynb
+│   ├── docker-compose.yml
+│   └── requirements.txt
+├── sidecar-redis
+│   ├── connect_to_redis.ipynb
+│   ├── docker-compose.yml
+│   └── requirements.txt
 ├── README.md
 └── requirements.txt
 ```
