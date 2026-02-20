@@ -25,6 +25,8 @@ def part_1(
             res = learner_func()
             if res == "hihi":
                 t.msg = "Correct output for test case 1"
+            elif res == "hihi!":
+                t.msg = "Also correct output for test case 1"
             else:
                 t.fail()
                 t.msg = "Incorrect output for test case 1"
