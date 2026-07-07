@@ -20,7 +20,7 @@ This repo collects the following lectures to demonstrate the usage of sandbox bu
 │           ├── grader.py
 │           ├── requirements.txt
 │           └── ...
-├── services
+├── artifacts
 │   ├── exa.ipynb
 │   ├── openai_.ipynb
 │   ├── tavily_.ipynb
