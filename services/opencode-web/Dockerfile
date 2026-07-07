@@ -41,6 +41,11 @@ RUN printf '#!/bin/sh\nexit 0\n' > /usr/local/bin/xdg-open \
 ENV OPENCODE_DISABLE_AUTOUPDATE=true
 
 # Global config path — autoupdate/model settings are only honored here.
+# The config aliases the model as `openrouter/glm-5.2` -> `z-ai/glm-5.2`: the
+# web UI (as of 1.17.13) parses config.model with a two-segment split, so a
+# raw three-segment id like `openrouter/z-ai/glm-5.2` fails to resolve and the
+# UI silently falls back to the OpenCode Zen free models. Keep the alias
+# slash-free (and Zen in disabled_providers) until upstream fixes the parse.
 COPY opencode.json /root/.config/opencode/opencode.json
 
 COPY init.sh /init.sh
